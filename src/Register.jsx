@@ -8,10 +8,11 @@ export const Register=(props)=>{
         console.log(email);
     }
     return(
-        <>
-        <form onSubmit={handleSubmit}>
+        <div className="auth-form-container">
+            <h2>Register</h2>
+        <form className="register-form" onSubmit={handleSubmit}>
             <label htmlFor="name">Full Name</label>
-            <input value={name} name="name" id="name" placeholder="full Name"/>
+            <input value={name} onChange={(e) => setName(e.target.value)} name="name" id="name" placeholder="full Name"/>
             <label for="email">email</label>
             <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Youremail@gmail.com" id="email" name="email" />
             <br />
@@ -20,7 +21,7 @@ export const Register=(props)=>{
             <br />
             <button type="submit">Log in</button>
         </form>
-        <button onClick={()=>props.onFormSwitch('login')} >Alredy have an account? Login here.</button>
-        </>
+        <button className="link-btn" onClick={()=>props.onFormSwitch('login')} >Alredy have an account? Login here.</button>
+        </div>
     )
 }
